@@ -24,4 +24,12 @@ public class UsuarioService {
                 .stream(repository.findAll().spliterator(), false)
                 .collect(Collectors.toList());
     }
+
+    public void deletar (Integer id){
+        repository.deleteById(id);
+    }
+
+    public UsuarioEntity obterPorId (Integer id) {
+        return repository.findById(id).get();
+    }
 }

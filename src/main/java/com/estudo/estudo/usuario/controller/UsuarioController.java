@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,5 +37,18 @@ public class UsuarioController {
     public String listar (Model model){
         model.addAttribute("usuariosLista", uService.listarTodos());
         return "usuario/listar";
+    }
+
+    @RequestMapping(path = "/deletar/{id}")
+    public String deletar (@PathVariable("id") Integer id, Model model){
+        uService.deletar(id);
+        model.addAttribute("usuariosLista", uService.listarTodos());
+        return "redirect:/usuarios/listar";
+    }
+
+    @GetMapping ("atualizar/{id}")
+    public String atualizar (@PathVariable("id") Integer id, Model model){
+        model.addAttribute("usuario", uService.obterPorId(id));
+        return "usuario/cadastrar";
     }
 }
