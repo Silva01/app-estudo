@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário</title>
+</head>
+<body>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Ativo?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="usuario:${usuariosLista}">
+            <th scope="row" th:text="${usuario.id}"></th>
+            <td th:text="${usuario.nome}"></td>
+            <td th:text="${usuario.cpf}"></td>
+            <td th:text="${usuario.telefone}"></td>
+            <td th:text="${usuario.ativo} ? 'Ativado' : 'Desativado'"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

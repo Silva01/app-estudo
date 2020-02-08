@@ -29,6 +29,12 @@ public class UsuarioController {
     public String salvar (UsuarioEntity usuario){
         usuario.setAtivo(true);
         uService.salvar(usuario);
-        return "redirect:/usuarios/cadastrar";
+        return "redirect:/usuarios/listar";
+    }
+
+    @GetMapping("listar")
+    public String listar (Model model){
+        model.addAttribute("usuariosLista", uService.listarTodos());
+        return "usuario/listar";
     }
 }

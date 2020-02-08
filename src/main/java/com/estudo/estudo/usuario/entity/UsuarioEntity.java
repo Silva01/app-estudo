@@ -31,7 +31,7 @@ public class UsuarioEntity {
     private String senha;
 
     @Column(nullable = false)
-    private boolean isAtivo;
+    private Boolean ativo;
 
     public Integer getId() {
         return id;
@@ -74,10 +74,10 @@ public class UsuarioEntity {
     }
 
     public boolean isAtivo() {
-        return isAtivo;
+        return ativo;
     }
 
     public void setAtivo(boolean ativo) {
-        isAtivo = ativo;
+        this.ativo = ativo;
     }
 }
