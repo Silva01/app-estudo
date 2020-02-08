@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário</title>
+</head>
+<body>
+<form action="#" th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+    </div>
+    <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" th:field="*{cpf}" placeholder="CPF">
+    </div>
+    <div class="form-group">
+        <label for="fone">Telefone</label>
+        <input type="tel" class="form-control" id="fone" th:field="*{telefone}" placeholder="Telefone">
+    </div>
+    <div class="form-group">
+        <label for="projetos">Projetos</label>
+        <select class="custom-select" multiple id="projetos">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="senha" maxlength="20">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
