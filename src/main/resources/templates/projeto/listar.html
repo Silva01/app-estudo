@@ -7,29 +7,41 @@
     <title>Listar Projetos</title>
 </head>
 <body>
-<h1>LISTAR PROJETOS</h1>
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Ativo?</th>
-            <th scope="col">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="projeto:${projetosLista}">
-            <th scope="row" th:text="${projeto.id}"></th>
-            <td th:text="${projeto.nome}"></td>
-            <td th:text="${projeto.ativo} ? 'Ativado' : 'Desativado'"></td>
-            <td>
-                <a th:href="@{/projetos/deletar/{id}(id=${projeto.id})}" class="btn btn-danger">Deletar</a>
-                <a th:href="@{/projetos/atualizar/{id}(id=${projeto.id})}" class="btn btn-warning">Atualizar</a>
-            </td>
-<!--            <td><a th:href="@{/usuarios/deletar/{id}(id=${usuario.id})}" class="btn btn-danger">Deletar</a></td>-->
-<!--            <td><a th:href="@{/usuarios/atualizar/{id}(id=${usuario.id})}" class="btn btn-warning">Atualizar</a></td>-->
-        </tr>
-        </tbody>
-    </table>
+    <div th:insert="~{fragmentos/header::header}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="col-4">
+                        <a th:href="@{/projetos/cadastrar}" class="btn btn-success">Cadastrar</a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Projetos</h3>
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Ativo?</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="projeto:${projetosLista}">
+                                <th scope="row" th:text="${projeto.id}"></th>
+                                <td th:text="${projeto.nome}"></td>
+                                <td th:text="${projeto.ativo} ? 'Ativado' : 'Desativado'"></td>
+                                <td>
+                                    <a th:href="@{/projetos/deletar/{id}(id=${projeto.id})}" class="btn btn-danger">Deletar</a>
+                                    <a th:href="@{/projetos/atualizar/{id}(id=${projeto.id})}" class="btn btn-warning">Atualizar</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
