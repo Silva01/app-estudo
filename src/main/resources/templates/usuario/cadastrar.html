@@ -7,34 +7,45 @@
     <title>Cadastrar Usuário</title>
 </head>
 <body>
-<form action="#" th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post">
-    <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+    <div th:insert="~{fragmentos/header::header}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-8" style="margin-left: auto; margin-right: auto">
+                    <h3>Cadastro de Usuário</h3>
+                    <br>
+                    <form action="#" th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" id="cpf" th:field="*{cpf}" placeholder="CPF">
+                        </div>
+                        <div class="form-group">
+                            <label for="fone">Telefone</label>
+                            <input type="tel" class="form-control" id="fone" th:field="*{telefone}" placeholder="Telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="projetos">Projetos</label>
+                            <select class="custom-select" multiple id="projetos">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="senha" maxlength="20">
+                        </div>
+                        <input type="hidden" id="id" th:field="*{id}">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="cpf">CPF</label>
-        <input type="text" class="form-control" id="cpf" th:field="*{cpf}" placeholder="CPF">
-    </div>
-    <div class="form-group">
-        <label for="fone">Telefone</label>
-        <input type="tel" class="form-control" id="fone" th:field="*{telefone}" placeholder="Telefone">
-    </div>
-    <div class="form-group">
-        <label for="projetos">Projetos</label>
-        <select class="custom-select" multiple id="projetos">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="senha">Senha</label>
-        <input type="password" class="form-control" id="senha" th:field="*{senha}" placeholder="senha" maxlength="20">
-    </div>
-    <input type="hidden" id="id" th:field="*{id}">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 </body>
 </html>
