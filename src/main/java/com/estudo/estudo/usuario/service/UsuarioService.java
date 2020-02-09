@@ -32,4 +32,8 @@ public class UsuarioService {
     public UsuarioEntity obterPorId (Integer id) {
         return repository.findById(id).get();
     }
+
+    public UsuarioEntity buscarPorCpf(String cpf) {
+        return repository.getUsuarioByCpf(cpf);
+    }
 }
