@@ -7,6 +7,14 @@
     <title>Cadastrar Projetos</title>
 </head>
 <body>
-
+<h1 style="text-align: center;">CADASTRAR PROJETO</h1>
+<form action="#" th:action="@{/projetos/salvar}" th:object="${projeto}" method="post">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+    </div>
+    <input type="hidden" id="id" th:field="*{id}">
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
 </body>
 </html>
