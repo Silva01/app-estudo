@@ -27,9 +27,10 @@ public class ProjetoController {
     public String salvar (ProjetoEntity projeto){
         projeto.setAtivo(true);
         pService.salvar(projeto);
-        return "redirect:/projetos/cadastrar";
+        return "redirect:/projetos/listar";
     }
 
+    @GetMapping("listar")
     public String listar (Model model) {
         model.addAttribute("projetosLista", pService.listarTodos());
         return "projeto/listar";

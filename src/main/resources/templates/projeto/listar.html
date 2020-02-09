@@ -13,6 +13,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
+            <th scope="col">Ativo?</th>
             <th scope="col">Ações</th>
         </tr>
         </thead>
@@ -20,7 +21,11 @@
         <tr th:each="projeto:${projetosLista}">
             <th scope="row" th:text="${projeto.id}"></th>
             <td th:text="${projeto.nome}"></td>
-            <td th:text="${usuario.ativo} ? 'Ativado' : 'Desativado'"></td>
+            <td th:text="${projeto.ativo} ? 'Ativado' : 'Desativado'"></td>
+            <td>
+                <a th:href="@{/projetos/deletar/{id}(id=${projeto.id})}" class="btn btn-danger">Deletar</a>
+                <a th:href="@{/projetos/atualizar/{id}(id=${projeto.id})}" class="btn btn-warning">Atualizar</a>
+            </td>
 <!--            <td><a th:href="@{/usuarios/deletar/{id}(id=${usuario.id})}" class="btn btn-danger">Deletar</a></td>-->
 <!--            <td><a th:href="@{/usuarios/atualizar/{id}(id=${usuario.id})}" class="btn btn-warning">Atualizar</a></td>-->
         </tr>
