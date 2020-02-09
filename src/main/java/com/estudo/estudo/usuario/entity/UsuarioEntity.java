@@ -1,5 +1,7 @@
 package com.estudo.estudo.usuario.entity;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -26,8 +28,7 @@ public class UsuarioEntity {
     private String telefone;
 
     @NotBlank
-    @Size(min = 6, max = 20)
-    @Column(length = 6, nullable = false)
+    @Column(nullable = false)
     private String senha;
 
     @Column(nullable = false)
@@ -70,7 +71,7 @@ public class UsuarioEntity {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        this.senha = new BCryptPasswordEncoder().encode(senha);
     }
 
     public boolean isAtivo() {
