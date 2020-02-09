@@ -27,6 +27,6 @@ public class ProjetoController {
     public String salvar (ProjetoEntity projeto){
         projeto.setAtivo(true);
         pService.salvar(projeto);
-        return "redirect:/projetos/listar";
+        return "redirect:/projetos/cadastrar";
     }
 }
