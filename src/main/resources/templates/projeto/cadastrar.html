@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Cadastrar Projetos</title>
+</head>
+<body>
+<h1 style="text-align: center;">CADASTRAR PROJETO</h1>
+<form action="#" th:action="@{/projetos/salvar}" th:object="${projeto}" method="post">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+    </div>
+    <input type="hidden" id="id" th:field="*{id}">
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+</body>
+</html>
