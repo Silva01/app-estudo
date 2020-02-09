@@ -29,4 +29,9 @@ public class ProjetoController {
         pService.salvar(projeto);
         return "redirect:/projetos/cadastrar";
     }
+
+    public String listar (Model model) {
+        model.addAttribute("projetosLista", pService.listarTodos());
+        return "projeto/listar";
+    }
 }

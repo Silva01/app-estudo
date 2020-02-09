@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Listar Projetos</title>
+</head>
+<body>
+<h1>LISTAR PROJETOS</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="projeto:${projetosLista}">
+            <th scope="row" th:text="${projeto.id}"></th>
+            <td th:text="${projeto.nome}"></td>
+            <td th:text="${usuario.ativo} ? 'Ativado' : 'Desativado'"></td>
+<!--            <td><a th:href="@{/usuarios/deletar/{id}(id=${usuario.id})}" class="btn btn-danger">Deletar</a></td>-->
+<!--            <td><a th:href="@{/usuarios/atualizar/{id}(id=${usuario.id})}" class="btn btn-warning">Atualizar</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
