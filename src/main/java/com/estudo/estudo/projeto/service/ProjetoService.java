@@ -24,4 +24,8 @@ public class ProjetoService {
                 .stream(repository.findAll().spliterator(), false)
                 .collect(Collectors.toList());
     }
+
+    public void deletar (Integer id) {
+        repository.deleteById(id);
+    }
 }
