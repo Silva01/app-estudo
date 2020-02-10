@@ -28,4 +28,10 @@ public class ProjetoService {
     public void deletar (Integer id) {
         repository.deleteById(id);
     }
+
+    public ProjetoEntity obterPorId (Integer id){
+        return repository.findById(id).get();
+    }
+
+
 }
