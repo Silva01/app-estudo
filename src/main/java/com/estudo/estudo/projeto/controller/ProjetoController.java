@@ -43,4 +43,9 @@ public class ProjetoController {
         model.addAttribute("projetosLista", pService.listarTodos());
         return "redirect:/projetos/listar";
     }
+
+    public String atualizar (@PathVariable("id") Integer id, Model model){
+        model.addAttribute("projeto", pService.obterPorId(id));
+        return "projeto/cadastrar";
+    }
 }
