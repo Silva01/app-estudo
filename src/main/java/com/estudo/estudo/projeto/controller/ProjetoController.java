@@ -44,7 +44,7 @@ public class ProjetoController {
         return "redirect:/projetos/listar";
     }
 
-    @GetMapping("atualizar")
+    @GetMapping("atualizar/{id}")
     public String atualizar (@PathVariable("id") Integer id, Model model){
         model.addAttribute("projeto", pService.obterPorId(id));
         return "projeto/cadastrar";
