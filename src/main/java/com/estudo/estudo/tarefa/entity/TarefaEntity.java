@@ -23,7 +23,7 @@ public class TarefaEntity {
     private String descricao;
 
     @Column
-    private ProjetoEntity nomeProjeto;
+    private String nomeProjeto;
 
     @Column
     private String status;
@@ -52,11 +52,11 @@ public class TarefaEntity {
         this.descricao = descricao;
     }
 
-    public ProjetoEntity getNomeProjeto() {
+    public String getNomeProjeto() {
         return nomeProjeto;
     }
 
-    public void setNomeProjeto(ProjetoEntity nomeProjeto) {
+    public void setNomeProjeto(String nomeProjeto) {
         this.nomeProjeto = nomeProjeto;
     }
 

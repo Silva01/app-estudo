@@ -16,9 +16,14 @@ public class TarefaController {
     private TarefaService tService;
 
     @GetMapping("cadastrar")
-    public String cadastrar (Model model) {
+    public String inserir (Model model) {
         TarefaEntity tarefa = new TarefaEntity();
         model.addAttribute("tarefa", tarefa);
         return "tarefa/cadastrar";
+    }
+
+    public String salvar (TarefaEntity tarefa){
+        tService.salvar(tarefa);
+        return "redirect:/tarefas/listar";
     }
 }
