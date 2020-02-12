@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping ("tarefas")
@@ -22,6 +23,7 @@ public class TarefaController {
         return "tarefa/cadastrar";
     }
 
+    @RequestMapping(path = "salvar", method = RequestMethod.POST)
     public String salvar (TarefaEntity tarefa){
         tService.salvar(tarefa);
         return "redirect:/tarefas/listar";
