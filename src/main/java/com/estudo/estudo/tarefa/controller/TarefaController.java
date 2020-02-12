@@ -28,4 +28,10 @@ public class TarefaController {
         tService.salvar(tarefa);
         return "redirect:/tarefas/listar";
     }
+
+    @GetMapping("listar")
+    public String listar (Model model){
+        model.addAttribute("tarefasLista", tService.listarTodos());
+        return "tarefa/listar";
+    }
 }
