@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Listar Tarefas</title>
+</head>
+<body>
+    <div th:insert="~{fragmentos/header::header}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="col-4">
+                        <a th:href="@{/tarefas/cadastrar}" class="btn btn-success">Cadastrar</a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Tarefas</h3>
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Nome do Projeto</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="tarefa:${tarefasLista}">
+                                <th scope="row" th:text="${tarefa.id}"></th>
+                                <td th:text="${tarefa.nome}"></td>
+                                <td th:text="${tarefa.descricao}"></td>
+                                <td th:text="${tarefa.nomeProjeto}"></td>
+                                <td th:text="${tarefa.status}"></td>
+                                <td>
+                                    <a th:href="@{/projetos/deletar/{id}(id=${tarefa.id})}" class="btn btn-danger">Deletar</a>
+                                    <a th:href="@{/projetos/atualizar/{id}(id=${tarefa.id})}" class="btn btn-warning">Atualizar</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
