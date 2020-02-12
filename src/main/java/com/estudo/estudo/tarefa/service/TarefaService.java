@@ -4,6 +4,10 @@ import com.estudo.estudo.tarefa.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class TarefaService {
 
@@ -14,5 +18,9 @@ public class TarefaService {
         repository.save(tarefa);
     }
 
-
+    public List<TarefaEntity> listarTodos () {
+        return StreamSupport
+                .stream(repository.findAll().spliterator(), false)
+                .collect(Collectors.toList());
+    }
 }
