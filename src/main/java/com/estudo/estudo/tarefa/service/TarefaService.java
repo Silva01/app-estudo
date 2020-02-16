@@ -28,5 +28,7 @@ public class TarefaService {
         repository.deleteById(id);
     }
 
-
+    public TarefaEntity obterPorId (Integer id) {
+        return repository.findById(id).get();
+    }
 }

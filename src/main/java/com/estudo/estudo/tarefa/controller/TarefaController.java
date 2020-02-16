@@ -42,4 +42,10 @@ public class TarefaController {
         model.addAttribute("tarefa", tService.listarTodos());
         return "redirect:/tarefas/listar";
     }
+
+    @GetMapping("atualizar/{id}")
+    public String atualizar (@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("tarefa", tService.obterPorId(id));
+        return "tarefa/cadastrar";
+    }
 }

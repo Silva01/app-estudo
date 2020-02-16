@@ -36,8 +36,8 @@
                                 <td th:text="${tarefa.nomeProjeto}"></td>
                                 <td th:text="${tarefa.status}"></td>
                                 <td>
-                                    <a th:href="@{/projetos/deletar/{id}(id=${tarefa.id})}" class="btn btn-danger">Deletar</a>
-                                    <a th:href="@{/projetos/atualizar/{id}(id=${tarefa.id})}" class="btn btn-warning">Atualizar</a>
+                                    <a th:href="@{/tarefas/deletar/{id}(id=${tarefa.id})}" class="btn btn-danger">Deletar</a>
+                                    <a th:href="@{/tarefas/atualizar/{id}(id=${tarefa.id})}" class="btn btn-warning">Atualizar</a>
                                 </td>
                             </tr>
                             </tbody>
