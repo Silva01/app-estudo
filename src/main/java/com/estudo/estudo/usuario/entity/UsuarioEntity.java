@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -33,6 +34,10 @@ public class UsuarioEntity {
 
     @Column(nullable = false)
     private Boolean ativo;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsuarioProjeto")
+    private List<UsuarioProjeto> projetos;
 
     public UsuarioEntity() {
         ativo = true;

@@ -1,5 +1,6 @@
 package com.estudo.estudo.usuario.controller;
 
+import com.estudo.estudo.projeto.service.ProjetoService;
 import com.estudo.estudo.usuario.entity.UsuarioEntity;
 import com.estudo.estudo.usuario.service.UsuarioActionsEnun;
 import com.estudo.estudo.usuario.service.UsuarioService;
@@ -18,8 +19,12 @@ public class UsuarioController {
     @Autowired
     private UsuarioService uService;
 
+    @Autowired
+    private ProjetoService pService;
+
     @GetMapping("cadastrar")
     public String createAndRedirect (Model model){
+        model.addAttribute("projetos", pService.listarTodos());
         return uService.obterPorId(0)
                 .uploadAttributesModel(model)
                 .redirect(UsuarioActionsEnun.NEW_USER_PAGE);
