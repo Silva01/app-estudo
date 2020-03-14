@@ -34,6 +34,10 @@ public class UsuarioEntity {
     @Column(nullable = false)
     private Boolean ativo;
 
+    public UsuarioEntity() {
+        ativo = true;
+    }
+
     public Integer getId() {
         return id;
     }
