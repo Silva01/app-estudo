@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepository extends CrudRepository <UsuarioEntity, Integer>{
 
     @Query(value = "SELECT u FROM UsuarioEntity u WHERE u.cpf = :cpf")
-    public UsuarioEntity getUsuarioByCpf(@Param("cpf") String cpf);
+    UsuarioEntity getUsuarioByCpf(@Param("cpf") String cpf);
 }

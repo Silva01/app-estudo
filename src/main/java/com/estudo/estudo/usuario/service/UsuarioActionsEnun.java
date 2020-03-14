@@ -11,7 +11,7 @@ public enum UsuarioActionsEnun {
         return action;
     }
 
-    private UsuarioActionsEnun(String action) {
+    UsuarioActionsEnun(String action) {
         this.action = action;
     }
 }
