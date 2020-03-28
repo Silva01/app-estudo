@@ -5,7 +5,6 @@ import com.estudo.estudo.tarefa.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -15,7 +14,7 @@ public class TarefaService extends ResponseAbstract {
     @Autowired
     private TarefaRepository repository;
     private static final String ATTRIBUTE_TASK_LIST = "tarefasLista";
-    private static final String ATTRIBUTE_TASK = "lista";
+    private static final String ATTRIBUTE_TASK = "tarefa";
 
     public TarefaService(){
         super();
