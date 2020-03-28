@@ -1,6 +1,5 @@
 package com.estudo.estudo;
 
-import com.estudo.estudo.usuario.service.UsuarioActionsEnun;
 import org.springframework.ui.Model;
 
 import java.util.HashMap;
@@ -24,7 +23,7 @@ public abstract class ResponseAbstract {
         return this;
     }
 
-    public String redirect(UsuarioActionsEnun actionRedirect) {
+    public String redirect(Action actionRedirect) {
         return actionRedirect.getAction();
     }
 }
