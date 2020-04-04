@@ -28,6 +28,10 @@ public class TarefaEntity {
     @Column
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name = "idProjeto")
+    private ProjetoEntity projeto;
+
     public Integer getId() {
         return id;
     }
@@ -66,5 +70,13 @@ public class TarefaEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public ProjetoEntity getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(ProjetoEntity projeto) {
+        this.projeto = projeto;
     }
 }
