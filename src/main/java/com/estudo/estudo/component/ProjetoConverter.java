@@ -6,22 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Component
-public class ProjetoConverter implements Converter<String[], List<ProjetoEntity>> {
-
-    private ProjetoService projetoService;
+public class ProjetoConverter implements Converter<String, ProjetoEntity> {
 
     @Autowired
-    public ProjetoConverter(ProjetoService projetoService) {
-        this.projetoService = projetoService;
-    }
+    private ProjetoService projetoService;
 
     @Override
-    public List<ProjetoEntity> convert(String[] projetos) {
-        return projetoService.getByIds(Arrays.stream(projetos).map(Integer::parseInt).collect(Collectors.toList()));
+    public ProjetoEntity convert(String s) {
+        return projetoService.obterPorId(Integer.parseInt(s));
     }
 }
