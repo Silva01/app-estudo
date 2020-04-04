@@ -53,7 +53,9 @@ public class UsuarioController {
 
     @GetMapping ("atualizar/{id}")
     public String updateAndRedirect (@PathVariable("id") Integer id, Model model){
-        return uService.obterPorId(id).uploadAttributesModel(model)
+        return uService.obterPorId(id)
+                .addResponseAttribute("projetos", pService.listarTodos())
+                .uploadAttributesModel(model)
                 .redirect(UsuarioActionsEnun.NEW_USER_PAGE);
     }
 }
