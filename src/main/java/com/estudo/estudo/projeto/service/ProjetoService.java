@@ -33,5 +33,10 @@ public class ProjetoService {
         return repository.findById(id).get();
     }
 
+    public List<ProjetoEntity> getByIds(List<Integer> ids) {
+        return StreamSupport.stream(repository.findAllById(ids).spliterator(), false)
+                .collect(Collectors.toList());
+    }
+
 
 }
