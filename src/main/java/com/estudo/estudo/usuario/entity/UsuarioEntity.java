@@ -1,5 +1,6 @@
 package com.estudo.estudo.usuario.entity;
 
+import com.estudo.estudo.projeto.entity.ProjetoEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
@@ -36,8 +37,8 @@ public class UsuarioEntity {
     private Boolean ativo;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idUsuarioProjeto")
-    private List<UsuarioProjeto> projetos;
+    @JoinColumn(name = "id")
+    private List<ProjetoEntity> projetos;
 
     public UsuarioEntity() {
         ativo = true;
@@ -89,5 +90,13 @@ public class UsuarioEntity {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public List<ProjetoEntity> getProjetos() {
+        return projetos;
+    }
+
+    public void setProjetos(List<ProjetoEntity> projetos) {
+        this.projetos = projetos;
     }
 }
