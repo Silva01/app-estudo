@@ -33,7 +33,7 @@
                                 <th scope="row" th:text="${tarefa.id}"></th>
                                 <td th:text="${tarefa.nome}"></td>
                                 <td th:text="${tarefa.descricao}"></td>
-                                <td th:text="${tarefa.nomeProjeto}"></td>
+                                <td th:text="${tarefa.projeto.nome}"></td>
                                 <td th:text="${tarefa.status}"></td>
                                 <td>
                                     <a th:href="@{/tarefas/deletar/{id}(id=${tarefa.id})}" class="btn btn-danger">Deletar</a>
