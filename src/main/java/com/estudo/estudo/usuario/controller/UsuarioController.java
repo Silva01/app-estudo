@@ -24,8 +24,8 @@ public class UsuarioController {
 
     @GetMapping("cadastrar")
     public String createAndRedirect (Model model){
-        model.addAttribute("projetos", pService.listarTodos());
         return uService.obterPorId(0)
+                .addResponseAttribute("projetos", pService.listarTodos())
                 .uploadAttributesModel(model)
                 .redirect(UsuarioActionsEnun.NEW_USER_PAGE);
     }
