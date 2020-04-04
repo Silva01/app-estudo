@@ -22,11 +22,6 @@ public class EstudoDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("Usuário não encontrado");
         }
 
-        return new UsuarioLogado(
-                entity.getNome(),
-                entity.getSenha(),
-                entity.getCpf(),
-                entity.isAtivo()
-        );
+        return new UsuarioLogado(entity);
     }
 }
