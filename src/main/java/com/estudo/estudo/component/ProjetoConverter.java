@@ -1,4 +1,4 @@
-package com.estudo.estudo;
+package com.estudo.estudo.component;
 
 import com.estudo.estudo.projeto.entity.ProjetoEntity;
 import com.estudo.estudo.projeto.service.ProjetoService;
