@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("usuarios")
 public class UsuarioController {
 
-    @Autowired
     private UsuarioService uService;
+    private ProjetoService pService;
 
     @Autowired
-    private ProjetoService pService;
+    public UsuarioController(UsuarioService uService, ProjetoService pService) {
+        this.uService = uService;
+        this.pService = pService;
+    }
 
     @GetMapping("cadastrar")
     public String createAndRedirect (Model model){
