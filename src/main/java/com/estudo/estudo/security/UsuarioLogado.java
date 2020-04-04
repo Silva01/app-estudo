@@ -1,5 +1,6 @@
 package com.estudo.estudo.security;
 
+import com.estudo.estudo.usuario.entity.UsuarioEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,19 +10,25 @@ import java.util.Collection;
 public class UsuarioLogado implements UserDetails {
 
     private String name;
+    private Integer id;
     private String senha;
     private String login;
     private boolean ativo;
 
-    public UsuarioLogado(String name, String senha, String login, boolean ativo) {
-        this.name = name;
-        this.senha = senha;
-        this.login = login;
-        this.ativo = ativo;
+    public UsuarioLogado(UsuarioEntity usuario) {
+        this.name = usuario.getNome();
+        this.senha = usuario.getSenha();
+        this.login = usuario.getCpf();
+        this.ativo = usuario.isAtivo();
+        this.id = usuario.getId();
     }
 
     public String getName() {
         return name;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override

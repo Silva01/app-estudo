@@ -16,16 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("usuarios")
 public class UsuarioController {
 
-    @Autowired
     private UsuarioService uService;
+    private ProjetoService pService;
 
     @Autowired
-    private ProjetoService pService;
+    public UsuarioController(UsuarioService uService, ProjetoService pService) {
+        this.uService = uService;
+        this.pService = pService;
+    }
 
     @GetMapping("cadastrar")
     public String createAndRedirect (Model model){
-        model.addAttribute("projetos", pService.listarTodos());
         return uService.obterPorId(0)
+                .addResponseAttribute("projetos", pService.listarTodos())
                 .uploadAttributesModel(model)
                 .redirect(UsuarioActionsEnun.NEW_USER_PAGE);
     }
@@ -50,7 +53,9 @@ public class UsuarioController {
 
     @GetMapping ("atualizar/{id}")
     public String updateAndRedirect (@PathVariable("id") Integer id, Model model){
-        return uService.obterPorId(id).uploadAttributesModel(model)
+        return uService.obterPorId(id)
+                .addResponseAttribute("projetos", pService.listarTodos())
+                .uploadAttributesModel(model)
                 .redirect(UsuarioActionsEnun.NEW_USER_PAGE);
     }
 }

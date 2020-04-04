@@ -36,8 +36,10 @@ public class UsuarioEntity {
     @Column(nullable = false)
     private Boolean ativo;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @ManyToMany
+    @JoinTable(name = "UsuariosProjetos",
+            joinColumns = { @JoinColumn(name = "idUsuario") },
+            inverseJoinColumns = { @JoinColumn(name = "idProjeto") })
     private List<ProjetoEntity> projetos;
 
     public UsuarioEntity() {
