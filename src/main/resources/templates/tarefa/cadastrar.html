@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Cadastrar Tarefas</title>
+</head>
+<body>
+    <div th:insert="~{fragmentos/header::header}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-8" style="margin-left: auto; margin-right: auto">
+                    <h3 style="text-align: center;">Cadastro de Tarefa</h3>
+                    <br>
+                    <form action="#" th:action="@{/tarefas/salvar}" th:object="${tarefa}" method="post">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" class="form-control" id="descricao" th:field="*{descricao}" placeholder="Descrição">
+                        </div>
+                        <div class="form-group">
+                            <label for="projetos-tarefa">Projeto</label>
+                            <select class="custom-select" id="projetos-tarefa" th:field="*{projeto}">
+                                <option th:each="projeto:${projetos}" th:value="${projeto.id}" th:text="${{projeto.nome}}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <input type="text" class="form-control" id="status" th:field="*{status}" placeholder="Status">
+                        </div>
+                        <input type="hidden" id="id" th:field="*{id}">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
